@@ -23,7 +23,10 @@ app.post("/addg",async(request,response)=>{
     }
 })
 
-
+app.get("/viewg",async(request,response)=>{
+    let result=await gymModel.find()
+    response.json(result)
+})
 
 
 app.listen(3001,()=>{
