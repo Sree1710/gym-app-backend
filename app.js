@@ -34,6 +34,16 @@ app.post("/searchg",async(request,response)=>{
     response.json(result)
 })
 
+app.post("/deleteg",async(request,response)=>{
+    let data=request.body
+    let result=await gymModel.deleteOne(data)
+    if (result.acknowledged==true) {
+        response.json({"status":"success"})
+    } else {
+        response.json({"status":"error"})
+    }
+})
+
 app.listen(3001,()=>{
     console.log("Server is running")
 })
