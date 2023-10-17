@@ -28,7 +28,11 @@ app.get("/viewg",async(request,response)=>{
     response.json(result)
 })
 
-
+app.post("/searchg",async(request,response)=>{
+    let data=request.body
+    let result=await gymModel.find(data)
+    response.json(result)
+})
 
 app.listen(3001,()=>{
     console.log("Server is running")
